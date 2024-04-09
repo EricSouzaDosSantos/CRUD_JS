@@ -14,11 +14,11 @@ export const AddUser = () => {
 //Read
 export const ListUser = () => {
 
-    let listUser;
+    let listUser = "";
 
     arrUser.forEach((dataUser) => {
 
-        listUser = `nome: ${dataUser.nameUser} email: ${dataUser.emailUser}`
+        listUser += `nome: ${dataUser.nameUser} email: ${dataUser.emailUser} \n`
 
     })
 
@@ -39,30 +39,37 @@ export const UpdateUser = () => {
 
     if (newEmail) {
         userFound.emailUser = newEmail
+        alert("Email atualizado com sucesso")
+
     }
 
     let confirm = window.confirm("Deseja atualizar o nome também?")
 
     if (confirm) {
         const newName = prompt("Informe o novo nome:")
-        if(newName){
+        if (newName) {
             userFound.nameUser = newName
+            alert("Nome atualizado com sucesso")
+
         }
     }
 }
 
 //Delete
-export const DeleteUser =  () => {
+export const DeleteUser = () => {
 
     const findEmail = prompt("informe o email da conta que você deseja deletar:")
-    const userFound = arrUser.find(user => user.emailUser === findEmail)
+    const emailIndiceFound = arrUser.findIndex(email => email.emailUser === findEmail)
 
-    if (!userFound) {
+    if (!emailIndiceFound) {
         alert("Usuario não foi encontrado")
         return;
-    }else{
-        arrUser.splice(userFound,1)
-
     }
 
+    let confirm = window.confirm(`Tem certeza que deseja excluir sua conta com o email: ${findEmail}?`)
+
+    if(confirm){
+    arrUser.splice(emailIndiceFound, 1)
+    alert("Usuario Deleatado com sucesso")
+    }
 }
