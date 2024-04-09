@@ -1,6 +1,7 @@
 import { AddUser } from "./crud.js"
 import { ListUser } from "./crud.js"
 import { UpdateUser } from "./crud.js"
+import { DeleteUser } from "./crud.js"
 
 
 let entrada = true
@@ -36,7 +37,7 @@ while(entrada){
         
         case 4:
 
-        
+        DeleteUser()
 
         break
 
