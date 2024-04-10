@@ -5,6 +5,11 @@ export const AddUser = () => {
     const nameUser = prompt("Qual o deseja adicionar nome:")
     const emailUser = prompt("Informe o email da pessoa")
 
+    if (!nameUser || !emailUser) {
+        alert("Os campos são obrigatórios! ");
+      }
+
+
     arrUser.push({ nameUser, emailUser })
 
     console.log(arrUser)
